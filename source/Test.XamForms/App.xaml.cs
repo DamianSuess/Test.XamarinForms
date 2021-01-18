@@ -1,17 +1,17 @@
 using Prism;
 using Prism.Ioc;
-using Test.XamForms.ViewModels;
-using Test.XamForms.Views;
+using Test.XamForms.Client.ViewModels;
+using Test.XamForms.Client.Views;
 using Xamarin.Essentials.Implementation;
 using Xamarin.Essentials.Interfaces;
 using Xamarin.Forms;
 
-namespace Test.XamForms
+namespace Test.XamForms.Client
 {
   public partial class App
   {
     public App(IPlatformInitializer initializer)
-        : base(initializer)
+      : base(initializer)
     {
     }
 

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Test.XamForms.ViewModels
+namespace Test.XamForms.Client.ViewModels
 {
   public class MainPageViewModel : ViewModelBase
   {

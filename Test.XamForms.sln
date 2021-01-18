@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.XamForms", "source\Test.XamForms\Test.XamForms.csproj", "{E002FCE7-27B6-49AB-90E6-BEA77EAF0104}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.XamForms.Client", "source\Test.XamForms\Test.XamForms.Client.csproj", "{E002FCE7-27B6-49AB-90E6-BEA77EAF0104}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.XamForms.Android", "source\Test.XamForms.Android\Test.XamForms.Android.csproj", "{27FB80A9-F7ED-4B4E-AD52-146BC8F86CE5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.XamForms.iOS", "source\Test.XamForms.iOS\Test.XamForms.iOS.csproj", "{BC856EB0-668A-443C-B317-0BCFDD1B50E5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.XamForms.UWP", "source\Test.XamForms.UWP\Test.XamForms.UWP.csproj", "{04068AE7-AEF4-4624-B453-E8F4FE66D0D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Targets", "Targets", "{1E3B1CCD-BB84-4F86-A0B5-FF398B5C27A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -254,6 +256,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{27FB80A9-F7ED-4B4E-AD52-146BC8F86CE5} = {1E3B1CCD-BB84-4F86-A0B5-FF398B5C27A0}
+		{BC856EB0-668A-443C-B317-0BCFDD1B50E5} = {1E3B1CCD-BB84-4F86-A0B5-FF398B5C27A0}
+		{04068AE7-AEF4-4624-B453-E8F4FE66D0D7} = {1E3B1CCD-BB84-4F86-A0B5-FF398B5C27A0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C9467589-7396-4BDC-B290-22EDDA87C3F4}

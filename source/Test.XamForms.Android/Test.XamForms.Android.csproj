@@ -107,9 +107,9 @@
     <AndroidResource Include="Resources\values\strings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Test.XamForms\Test.XamForms.csproj">
-      <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
-      <Name>Test.XamForms</Name>
+    <ProjectReference Include="..\Test.XamForms\Test.XamForms.Client.csproj">
+      <Project>{E002FCE7-27B6-49AB-90E6-BEA77EAF0104}</Project>
+      <Name>Test.XamForms.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

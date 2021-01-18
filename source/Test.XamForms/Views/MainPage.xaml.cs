@@ -1,5 +1,5 @@
 ﻿
-namespace Test.XamForms.Views
+namespace Test.XamForms.Client.Views
 {
   public partial class MainPage
   {

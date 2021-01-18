@@ -4,20 +4,18 @@ using Android.Runtime;
 
 namespace Test.XamForms.Droid
 {
-    [Application(
-        Theme = "@style/MainTheme"
-        )]
-    public class MainApplication : Application
+  [Application(Theme = "@style/MainTheme")]
+  public class MainApplication : Application
+  {
+    public MainApplication(IntPtr javaReference, JniHandleOwnership transfer)
+      : base(javaReference, transfer)
     {
-        public MainApplication(IntPtr javaReference, JniHandleOwnership transfer)
-            : base(javaReference, transfer)
-        {
-        }
-
-        public override void OnCreate()
-        {
-            base.OnCreate();
-            Xamarin.Essentials.Platform.Init(this);
-        }
     }
+
+    public override void OnCreate()
+    {
+      base.OnCreate();
+      Xamarin.Essentials.Platform.Init(this);
+    }
+  }
 }
