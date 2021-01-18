@@ -28,6 +28,9 @@ namespace Test.XamForms.Client
 
       containerRegistry.RegisterForNavigation<NavigationPage>();
       containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+      containerRegistry.RegisterForNavigation<CollectionSwipeView, CollectionSwipeViewModel>();
+      containerRegistry.RegisterForNavigation<ShakeBehaviorsView, ShakeBehaviorsViewModel>();
+      containerRegistry.RegisterForNavigation<ListViewSwipeView, ListViewSwipeViewModel>();
     }
   }
 }

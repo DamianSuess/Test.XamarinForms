@@ -13,6 +13,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.XamForms.UWP", "source
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Targets", "Targets", "{1E3B1CCD-BB84-4F86-A0B5-FF398B5C27A0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7C8DBD19-BA7C-47FB-B4E9-3E44A3EC7EBE}"
+	ProjectSection(SolutionItems) = preProject
+		source\.editorconfig = source\.editorconfig
+		source\.licenseheader = source\.licenseheader
+		source\.vsspell = source\.vsspell
+		source\CodeMaid.config = source\CodeMaid.config
+		source\Settings.XamlStyler = source\Settings.XamlStyler
+		source\stylecop.json = source\stylecop.json
+		source\stylecop.ruleset = source\stylecop.ruleset
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -230,6 +241,7 @@ Global
 		{04068AE7-AEF4-4624-B453-E8F4FE66D0D7}.AppStore|x86.Build.0 = Debug|x86
 		{04068AE7-AEF4-4624-B453-E8F4FE66D0D7}.AppStore|x86.Deploy.0 = Debug|x86
 		{04068AE7-AEF4-4624-B453-E8F4FE66D0D7}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{04068AE7-AEF4-4624-B453-E8F4FE66D0D7}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{04068AE7-AEF4-4624-B453-E8F4FE66D0D7}.Debug|ARM.ActiveCfg = Debug|ARM
 		{04068AE7-AEF4-4624-B453-E8F4FE66D0D7}.Debug|ARM.Build.0 = Debug|ARM
 		{04068AE7-AEF4-4624-B453-E8F4FE66D0D7}.Debug|ARM.Deploy.0 = Debug|ARM

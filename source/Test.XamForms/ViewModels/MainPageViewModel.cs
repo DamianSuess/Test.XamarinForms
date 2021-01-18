@@ -1,19 +1,25 @@
 ﻿using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Test.XamForms.Client.Views;
 
 namespace Test.XamForms.Client.ViewModels
 {
   public class MainPageViewModel : ViewModelBase
   {
     public MainPageViewModel(INavigationService navigationService)
-        : base(navigationService)
+      : base(navigationService)
     {
-      Title = "Main Page";
+      Title = "Choose Sample";
     }
+
+    public DelegateCommand CmdCollectionSwipeView => new DelegateCommand(async () =>
+    {
+      await NavigationService.NavigateAsync(nameof(CollectionSwipeView));
+    });
+
+    public DelegateCommand CmdListViewSwipeView => new DelegateCommand(async () =>
+    {
+      await NavigationService.NavigateAsync(nameof(ListViewSwipeView));
+    });
   }
 }

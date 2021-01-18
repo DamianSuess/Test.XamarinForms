@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             x:Class="Test.XamForms.Client.Views.CollectionSwipeView"
+             prism:ViewModelLocator.AutowireViewModel="True">
+  <ContentPage.Content>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+
+      <Button Text="+"
+              Grid.Row="1"
+              Margin="0,0,10,10"
+              BackgroundColor="#007ACC"
+              BorderColor="#004C7F"
+              BorderRadius="30"
+              BorderWidth="1"
+              Command="{Binding CmdItemSave}"
+              FontSize="Large"
+              HeightRequest="60"
+              HorizontalOptions="End"
+              TextColor="White"
+              VerticalOptions="End"
+              WidthRequest="60" />
+
+      <!--
+        Activity List
+        * Swipe left to display options (Edit, Remove)
+        SwipeView Item
+        Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.FavoriteCommand}"
+      -->
+      <Label Text="Activities" FontSize="Large" />
+      <CollectionView ItemsSource="{Binding ActivityList}"
+                      SelectedItem="{Binding ActivitySelected}"
+                      SelectionMode="Single"
+                      VerticalOptions="FillAndExpand">
+        <CollectionView.ItemsLayout>
+          <GridItemsLayout Orientation="Vertical" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.EmptyView>
+          <Label Text="It's lonely here"
+                 HorizontalOptions="CenterAndExpand"
+                 VerticalOptions="CenterAndExpand" />
+        </CollectionView.EmptyView>
+        <CollectionView.ItemTemplate>
+          <DataTemplate>
+            <SwipeView>
+              <SwipeView.LeftItems>
+                <SwipeItems>
+                  <SwipeItem Text="Edit"
+                             BackgroundColor="LightGreen"
+                             Command="{Binding CmdItemEdit}"
+                             CommandParameter="{Binding .}"
+                             IconImageSource="favorite.png" />
+                  <SwipeItem Text="Delete"
+                             BackgroundColor="LightPink"
+                             Command="{Binding .}"
+                             CommandParameter="{Binding .}"
+                             IconImageSource="delete.png" />
+                </SwipeItems>
+              </SwipeView.LeftItems>
+              <Grid Padding="10">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="{Binding Name}" Grid.Row="0" />
+                <Label Text="{Binding Id}"
+                       Grid.Row="1"
+                       FontAttributes="Italic"
+                       FontSize="Micro" />
+              </Grid>
+            </SwipeView>
+          </DataTemplate>
+        </CollectionView.ItemTemplate>
+      </CollectionView>
+
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>

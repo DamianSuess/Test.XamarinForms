@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             x:Class="Test.XamForms.Client.Views.ListViewSwipeView"
+             prism:ViewModelLocator.AutowireViewModel="True">
+  <ContentPage.ToolbarItems>
+    <!--  Maximum of 2 items in ToolbarItems; Don't use IsEnabled  -->
+    <!--  IconImageSource="Add.png"  -->
+    <!--  IconImageSource="Pencil.png"  -->
+
+    <ToolbarItem Text="Add"
+                 Command="{Binding CmdItemSave}"
+                 Order="Primary"
+                 Priority="0" />
+    <ToolbarItem Text="Edit"
+                 Command="{Binding CmdItemEdit}"
+                 Order="Primary"
+                 Priority="1" />
+    <ToolbarItem Text="Export"
+                 Command="{Binding CmdExport}"
+                 Order="Secondary"
+                 Priority="2" />
+  </ContentPage.ToolbarItems>
+  <ContentPage.Content>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+
+      <Frame Grid.Row="0">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <Label Text="Input Activity Details"
+                 Grid.ColumnSpan="2"
+                 FontSize="Subtitle"
+                 VerticalOptions="Center" />
+          <Entry Text="{Binding ActivityName}"
+                 Grid.Row="1"
+                 Grid.ColumnSpan="2"
+                 Placeholder="Activity Name"
+                 ReturnCommand="{Binding CmdItemAdd}" />
+          <Label Text="Id:"
+                 Grid.Row="2"
+                 Grid.Column="0" />
+          <Label Text="{Binding ActivityId, Mode=TwoWay}"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 FontAttributes="Italic"
+                 FontSize="Small" />
+
+          <StackLayout Grid.Row="3"
+                       Grid.ColumnSpan="2"
+                       IsVisible="{Binding IsEditing}"
+                       Orientation="Horizontal">
+            <Button Text="Save" Command="{Binding CmdItemAdd}" />
+            <Button Text="Cancel" Command="{Binding CmdItemCancel}" />
+          </StackLayout>
+
+        </Grid>
+      </Frame>
+      <StackLayout Grid.Row="1">
+
+        <Label Text="Activities" FontSize="Large" />
+        <ListView IsPullToRefreshEnabled="true"
+                  IsRefreshing="{Binding IsRefreshing, Mode=OneWay}"
+                  ItemsSource="{Binding ActivityList}"
+                  RefreshCommand="{Binding CmdGetItems}"
+                  SelectedItem="{Binding ActivitySelected}"
+                  SelectionMode="Single"
+                  VerticalOptions="FillAndExpand">
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+
+                <ViewCell.ContextActions>
+                  <MenuItem Text="Edit"
+                            Command="{Binding Source={x:Reference contentPage}, Path=BindingContext.CmdItemEdit}"
+                            CommandParameter="{Binding .}" />
+                  <MenuItem Text="Delete"
+                            Command="{Binding CmdItemDelete}"
+                            IsDestructive="True" />
+                </ViewCell.ContextActions>
+
+                <Grid Padding="10">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                  </Grid.RowDefinitions>
+
+                  <Label Text="{Binding Name}" Grid.Row="0" />
+                  <Label Text="{Binding Id}"
+                         Grid.Row="1"
+                         FontAttributes="Italic"
+                         FontSize="Micro" />
+                </Grid>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      </StackLayout>
+
+      <Button Text="+"
+              Grid.Row="1"
+              Margin="0,0,10,10"
+              BackgroundColor="#007ACC"
+              BorderColor="#004C7F"
+              BorderRadius="30"
+              BorderWidth="1"
+              Command="{Binding CmdItemSave}"
+              FontSize="Large"
+              HeightRequest="60"
+              HorizontalOptions="End"
+              TextColor="White"
+              VerticalOptions="End"
+              WidthRequest="60" />
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>

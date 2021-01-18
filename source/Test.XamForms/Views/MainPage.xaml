@@ -5,7 +5,12 @@
              Title="{Binding Title}">
 
   <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-    <Label Text="Welcome to Xamarin Forms and Prism!" />
+    <Label Text="This project samples" />
+
+    <Button Text="Swipe CollectionView" Command="{Binding CmdCollectionSwipeView}" />
+
+    <Button Text="Swipe ListView" Command="{Binding CmdListViewSwipeView}" />
+
   </StackLayout>
 
 </ContentPage>
