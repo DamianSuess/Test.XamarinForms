@@ -5,38 +5,23 @@
              x:Class="Test.XamForms.Client.Views.CollectionSwipeView"
              prism:ViewModelLocator.AutowireViewModel="True">
   <ContentPage.Content>
-    <Grid>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="auto" />
-        <RowDefinition Height="*" />
-      </Grid.RowDefinitions>
-
-      <Button Text="+"
-              Grid.Row="1"
-              Margin="0,0,10,10"
-              BackgroundColor="#007ACC"
-              BorderColor="#004C7F"
-              BorderRadius="30"
-              BorderWidth="1"
-              Command="{Binding CmdItemSave}"
-              FontSize="Large"
-              HeightRequest="60"
-              HorizontalOptions="End"
-              TextColor="White"
-              VerticalOptions="End"
-              WidthRequest="60" />
+    <StackLayout>
+      <Button Text="+" Command="{Binding CmdItemAdd}" />
 
       <!--
-        Activity List
-        * Swipe left to display options (Edit, Remove)
-        SwipeView Item
-        Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.FavoriteCommand}"
+        SwipeView Item:
+        * Remember to bind to the ViewModel like so:
+        ===>  Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.FavoriteCommand}"
+        * You can add images to the SwipeItem via:
+        ===>  IconImageSource="favorite.png"
       -->
       <Label Text="Activities" FontSize="Large" />
-      <CollectionView ItemsSource="{Binding ActivityList}"
-                      SelectedItem="{Binding ActivitySelected}"
-                      SelectionMode="Single"
-                      VerticalOptions="FillAndExpand">
+
+      <!--
+        SelectedItem="{Binding CustomerSelected}"
+        SelectionMode="Single"
+      -->
+      <CollectionView x:Name="collectionView" ItemsSource="{Binding Customers}">
         <CollectionView.ItemsLayout>
           <GridItemsLayout Orientation="Vertical" />
         </CollectionView.ItemsLayout>
@@ -52,16 +37,17 @@
                 <SwipeItems>
                   <SwipeItem Text="Edit"
                              BackgroundColor="LightGreen"
-                             Command="{Binding CmdItemEdit}"
-                             CommandParameter="{Binding .}"
-                             IconImageSource="favorite.png" />
-                  <SwipeItem Text="Delete"
-                             BackgroundColor="LightPink"
-                             Command="{Binding .}"
-                             CommandParameter="{Binding .}"
-                             IconImageSource="delete.png" />
+                             Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.CmdItemEdit}"
+                             CommandParameter="{Binding .}" />
                 </SwipeItems>
               </SwipeView.LeftItems>
+              <SwipeView.RightItems>
+                <SwipeItem Text="Delete"
+                           BackgroundColor="LightPink"
+                           Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.CmdItemRemove}"
+                           CommandParameter="{Binding .}" />
+              </SwipeView.RightItems>
+
               <Grid Padding="10">
                 <Grid.RowDefinitions>
                   <RowDefinition Height="Auto" />
@@ -83,6 +69,6 @@
         </CollectionView.ItemTemplate>
       </CollectionView>
 
-    </Grid>
+    </StackLayout>
   </ContentPage.Content>
 </ContentPage>

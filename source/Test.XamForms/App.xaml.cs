@@ -1,5 +1,6 @@
 using Prism;
 using Prism.Ioc;
+using Test.XamForms.Client.Services;
 using Test.XamForms.Client.ViewModels;
 using Test.XamForms.Client.Views;
 using Xamarin.Essentials.Implementation;
@@ -19,12 +20,25 @@ namespace Test.XamForms.Client
     {
       InitializeComponent();
 
-      await NavigationService.NavigateAsync("NavigationPage/MainPage");
+      // Before Xamarin.Forms v5.0 you must include:
+      ////Device.SetFlags(new string[]
+      ////{
+      ////  "SwipeView_Experimental",
+      ////  "CarouselView_Experimental"
+      ////});
+
+      var ret = await NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(MainPage)}");
+      if (!ret.Success)
+      {
+        System.Diagnostics.Debug.WriteLine("> Failure to navigate to start page");
+        System.Diagnostics.Debug.WriteLine($"> {ret.Exception}");
+      }
     }
 
     protected override void RegisterTypes(IContainerRegistry containerRegistry)
     {
       containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
+      containerRegistry.RegisterSingleton<ILogService, LogService>();
 
       containerRegistry.RegisterForNavigation<NavigationPage>();
       containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();

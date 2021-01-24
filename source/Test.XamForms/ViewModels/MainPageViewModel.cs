@@ -14,12 +14,23 @@ namespace Test.XamForms.Client.ViewModels
 
     public DelegateCommand CmdCollectionSwipeView => new DelegateCommand(async () =>
     {
-      await NavigationService.NavigateAsync(nameof(CollectionSwipeView));
+      NavigateToAsync(nameof(CollectionSwipeView));
     });
 
     public DelegateCommand CmdListViewSwipeView => new DelegateCommand(async () =>
     {
-      await NavigationService.NavigateAsync(nameof(ListViewSwipeView));
+      NavigateToAsync(nameof(ListViewSwipeView));
     });
+
+    private async void NavigateToAsync(string page)
+    {
+      var ret = await NavigationService.NavigateAsync(page);
+      if (!ret.Success)
+      {
+        System.Diagnostics.Debug.WriteLine($"> Failure to navigate to, {page}");
+        System.Diagnostics.Debug.WriteLine($"> {ret.Exception}");
+      }
+
+    }
   }
 }
