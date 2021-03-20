@@ -21,7 +21,9 @@
         SelectedItem="{Binding CustomerSelected}"
         SelectionMode="Single"
       -->
-      <CollectionView x:Name="collectionView" ItemsSource="{Binding Customers}">
+      <CollectionView x:Name="collectionView"
+                      ItemsSource="{Binding Customers}"
+                      SelectionMode="Single">
         <CollectionView.ItemsLayout>
           <GridItemsLayout Orientation="Vertical" />
         </CollectionView.ItemsLayout>
