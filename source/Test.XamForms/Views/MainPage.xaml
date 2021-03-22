@@ -8,8 +8,8 @@
     <Label Text="This project samples" />
 
     <Button Text="Swipe CollectionView" Command="{Binding CmdCollectionSwipeView}" />
-
     <Button Text="Swipe ListView" Command="{Binding CmdListViewSwipeView}" />
+    <Button Text="Basic Tabs" Command="{Binding CmdBasicTabs}" />
 
   </StackLayout>
 

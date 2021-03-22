@@ -9,6 +9,10 @@ namespace Test.XamForms.UWP
     {
       this.InitializeComponent();
 
+      // Cache Location
+      System.Diagnostics.Debug.Print("Cache Location:");
+      System.Diagnostics.Debug.Print(Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path);
+
       LoadApplication(new Test.XamForms.Client.App(new UwpInitializer()));
     }
   }

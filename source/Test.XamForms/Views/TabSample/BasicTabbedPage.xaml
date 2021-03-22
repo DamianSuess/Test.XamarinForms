@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:Test.XamForms.Client.Views.TabSample"
+            xmlns:prism="http://prismlibrary.com"
+            x:Class="Test.XamForms.Client.Views.TabSample.BasicTabbedPage"
+            Title="Basic TabbedPage"
+            prism:ViewModelLocator.AutowireViewModel="True">
+
+  <TabbedPage.Children>
+
+    <!--
+      https://glyphsearch.com/?library=font-awesome&copy=htmlentity
+      Calendar: Glyph="&#xf073;"
+    -->
+    <local:BasicTab1View IconImageSource="" />
+
+    <local:BasicTab2View Title="Override Title">
+      <local:BasicTab2View.IconImageSource>
+        <FontImageSource FontFamily="FA-R"
+                         Glyph="&#xf584;"
+                         Color="Black" />
+      </local:BasicTab2View.IconImageSource>
+    </local:BasicTab2View>
+
+    <NavigationPage Title="Schedule">
+      <x:Arguments>
+        <local:BasicTab3View />
+      </x:Arguments>
+      <NavigationPage.IconImageSource>
+        <FontImageSource FontFamily="FA-R"
+                         Glyph="&#xf073;"
+                         Color="Black" />
+      </NavigationPage.IconImageSource>
+    </NavigationPage>
+
+    <NavigationPage Title="Schedule" IconImageSource="schedule.png">
+      <x:Arguments>
+        <local:BasicTab3View />
+      </x:Arguments>
+    </NavigationPage>
+
+  </TabbedPage.Children>
+</TabbedPage>

@@ -3,6 +3,7 @@ using Prism.Ioc;
 using Test.XamForms.Client.Services;
 using Test.XamForms.Client.ViewModels;
 using Test.XamForms.Client.Views;
+using Test.XamForms.Client.Views.TabSample;
 using Xamarin.Essentials.Implementation;
 using Xamarin.Essentials.Interfaces;
 using Xamarin.Forms;
@@ -45,6 +46,10 @@ namespace Test.XamForms.Client
       containerRegistry.RegisterForNavigation<CollectionSwipeView, CollectionSwipeViewModel>();
       containerRegistry.RegisterForNavigation<ShakeBehaviorsView, ShakeBehaviorsViewModel>();
       containerRegistry.RegisterForNavigation<ListViewSwipeView, ListViewSwipeViewModel>();
+      containerRegistry.RegisterForNavigation<BasicTabbedPage, BasicTabbedPageViewModel>();
+      containerRegistry.RegisterForNavigation<BasicTab1View, BasicTab1ViewModel>();
+      containerRegistry.RegisterForNavigation<BasicTab2View, BasicTab2ViewModel>();
+      containerRegistry.RegisterForNavigation<BasicTab3View, BasicTab3ViewModel>();
     }
   }
 }
